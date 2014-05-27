@@ -1,0 +1,35 @@
+Git workflow
+
+based on http://scottchacon.com/2011/08/31/github-flow.html
+
+Anything in the master branch is deployable
+To work on something new, create a descriptively named branch off of master (ie: new-oauth2-scopes)
+Commit to that branch locally and regularly push your work to the same named branch on github
+When the branch is ready to be deployed, create a pull request in GitHub
+After someone else has reviewed the changes, you can complete the pull request and merge into master
+
+create a local branch from master
+git checkout master
+git pull
+git checkout -b descriptive-branch-name master
+
+[make changes]
+
+push branch to github
+git add …….
+git commit -m “my cool descriptive commit message”
+git pull --rebase
+git push -u origin descriptive-branch-name
+
+start a pull request from github: https://github.com/briankonrath/mt_yii/compare/
+base: master
+compare: descriptive-branch-name
+
+Now someone else can review the changes and comment whether it is ready or not.
+When it is ready, you can merge into master using github.
+
+Now delete your branch:
+git checkout master
+git pull
+git branch -d descriptive-branch-name
+
